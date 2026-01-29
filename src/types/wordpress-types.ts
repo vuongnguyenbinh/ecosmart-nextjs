@@ -5,6 +5,11 @@ export interface WPImage {
   altText: string;
 }
 
+export interface WPCategory {
+  slug: string;
+  name: string;
+}
+
 export interface WPPost {
   id: string;
   title: string;
@@ -13,6 +18,7 @@ export interface WPPost {
   content?: string;
   date: string;
   featuredImage?: { node: WPImage };
+  categories?: { nodes: WPCategory[] };
 }
 
 export interface WPPage {
