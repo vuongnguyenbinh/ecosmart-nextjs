@@ -1,22 +1,25 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
-import { SiteHeader } from "@/components/site-header-navigation";
+import { Cormorant_Garamond, Montserrat } from "next/font/google";
+import { SiteHeaderLuxury } from "@/components/site-header-luxury";
+import { SiteFooter } from "@/components/site-footer";
 import "./globals.css";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
+const cormorant = Cormorant_Garamond({
+  variable: "--font-display",
+  subsets: ["latin", "vietnamese"],
+  weight: ["400", "500", "600", "700"],
 });
 
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
+const montserrat = Montserrat({
+  variable: "--font-body",
+  subsets: ["latin", "vietnamese"],
+  weight: ["300", "400", "500", "600", "700"],
 });
 
 export const metadata: Metadata = {
-  title: "ECO SMART GROUP - Kết Nối - Hợp Tác - Thành Công",
+  title: "Eco Smart Group | Kết Nối - Hợp Tác - Thành Công",
   description:
-    "ECO SMART GROUP cung cấp giải pháp toàn diện trong các lĩnh vực Kinh doanh, Marketing, Pháp lý và Kế toán cho doanh nghiệp Việt Nam.",
+    "Eco Smart Group - Hệ sinh thái dịch vụ văn phòng 360°. Cho thuê văn phòng, thiết kế nội thất, tư vấn pháp lý và dịch vụ vận hành toàn diện.",
 };
 
 export default function RootLayout({
@@ -26,11 +29,10 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="vi">
-      <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
-      >
-        <SiteHeader />
+      <body className={`${cormorant.variable} ${montserrat.variable}`}>
+        <SiteHeaderLuxury />
         {children}
+        <SiteFooter />
       </body>
     </html>
   );
