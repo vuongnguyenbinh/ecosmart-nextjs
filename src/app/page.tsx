@@ -7,14 +7,15 @@ import {
   Layers,
   Users,
   ShieldCheck,
-  Building,
-  PenTool,
-  Scale,
+  Check,
+  Palette,
   FileText,
-  Megaphone,
-  Briefcase,
+  TrendingUp,
+  Settings,
+  Network,
   Quote,
   Star,
+  ArrowRight,
 } from "lucide-react";
 
 const uspItems = [
@@ -42,34 +43,64 @@ const uspItems = [
 
 const services = [
   {
-    icon: Building,
+    icon: Building2,
     title: "Cho Thuê Văn Phòng",
-    desc: "Không gian làm việc linh hoạt từ 10-500m², thiết kế hiện đại, tiện nghi đầy đủ.",
+    desc: "Không gian văn phòng linh hoạt từ 20m² đến 500m², vị trí đắc địa, giá thuê cạnh tranh với đầy đủ tiện ích.",
+    features: [
+      "Vị trí trung tâm, giao thông thuận tiện",
+      "Hỗ trợ đăng ký kinh doanh",
+      "Hợp đồng linh hoạt từ 6 tháng",
+    ],
   },
   {
-    icon: PenTool,
+    icon: Palette,
     title: "Thiết Kế Nội Thất",
-    desc: "Giải pháp thiết kế không gian làm việc chuyên nghiệp, tối ưu công năng sử dụng.",
-  },
-  {
-    icon: Scale,
-    title: "Tư Vấn Pháp Lý",
-    desc: "Hỗ trợ thành lập doanh nghiệp, tư vấn hợp đồng và các vấn đề pháp lý kinh doanh.",
+    desc: "Thiết kế và thi công nội thất văn phòng trọn gói, tối ưu không gian làm việc theo phong cách riêng của doanh nghiệp.",
+    features: [
+      "Thiết kế 3D miễn phí",
+      "Thi công nhanh chóng 15-30 ngày",
+      "Bảo hành 24 tháng",
+    ],
   },
   {
     icon: FileText,
-    title: "Dịch Vụ Kế Toán",
-    desc: "Báo cáo tài chính, kê khai thuế và quản lý sổ sách kế toán chuyên nghiệp.",
+    title: "Tư Vấn Pháp Lý & Thuế",
+    desc: "Dịch vụ tư vấn pháp lý, kế toán và thuế chuyên nghiệp, giúp doanh nghiệp vận hành đúng quy định.",
+    features: [
+      "Thành lập doanh nghiệp",
+      "Báo cáo thuế định kỳ",
+      "Tư vấn pháp lý doanh nghiệp",
+    ],
   },
   {
-    icon: Megaphone,
-    title: "Marketing & Branding",
-    desc: "Xây dựng thương hiệu, chiến lược marketing số và phát triển nội dung.",
+    icon: TrendingUp,
+    title: "Dịch Vụ Marketing",
+    desc: "Giải pháp marketing toàn diện giúp doanh nghiệp xây dựng thương hiệu và tăng trưởng bền vững.",
+    features: [
+      "Thiết kế thương hiệu",
+      "Digital Marketing",
+      "Sản xuất nội dung",
+    ],
   },
   {
-    icon: Briefcase,
-    title: "Tư Vấn Kinh Doanh",
-    desc: "Chiến lược phát triển, tối ưu quy trình vận hành và nâng cao hiệu quả kinh doanh.",
+    icon: Settings,
+    title: "Vận Hành Toà Nhà",
+    desc: "Dịch vụ vận hành chuyên nghiệp với đội ngũ lễ tân, bảo vệ, vệ sinh và bảo trì 24/7.",
+    features: [
+      "Lễ tân chuyên nghiệp",
+      "An ninh & Camera 24/7",
+      "Bảo trì định kỳ",
+    ],
+  },
+  {
+    icon: Network,
+    title: "IT & Hạ Tầng",
+    desc: "Giải pháp công nghệ và hạ tầng IT cho doanh nghiệp, đảm bảo hoạt động liên tục và bảo mật.",
+    features: [
+      "Internet tốc độ cao",
+      "Hệ thống điện dự phòng",
+      "Hỗ trợ kỹ thuật 24/7",
+    ],
   },
 ];
 
@@ -260,30 +291,42 @@ export default function HomePage() {
               Dịch vụ của chúng tôi
             </span>
             <h2 className="font-[var(--font-display)] text-3xl lg:text-5xl font-semibold mt-4 mb-6">
-              <span className="text-theme-primary">Hệ Sinh Thái </span>
-              <span className="gold-text">Dịch Vụ 360°</span>
+              <span className="text-theme-primary">Giải Pháp </span>
+              <span className="gold-text">Toàn Diện</span>
             </h2>
             <div className="w-24 h-px bg-[var(--esg-gold)] mx-auto" />
           </div>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
             {services.map((service, index) => (
-              <div
-                key={index}
-                className="service-card p-8 rounded-lg group cursor-pointer"
-              >
-                <div className="w-14 h-14 mb-6 rounded-lg bg-[var(--esg-gold)]/10 flex items-center justify-center group-hover:bg-[var(--esg-gold)]/20 transition-all">
-                  <service.icon className="w-7 h-7 text-[var(--esg-gold)]/70 group-hover:text-[var(--esg-gold)] transition-all duration-300" />
+              <div key={index} className="service-card p-8 rounded-lg group">
+                <div className="w-14 h-14 mb-6 rounded-lg bg-[var(--esg-gold)]/10 flex items-center justify-center">
+                  <service.icon className="w-7 h-7 text-[var(--esg-gold)] transition-all duration-300" />
                 </div>
-                <h3 className="font-[var(--font-display)] text-xl font-semibold text-theme-primary mb-3">
+                <h3 className="font-[var(--font-display)] text-2xl font-semibold text-theme-primary mb-4 group-hover:text-[var(--esg-gold)] transition-colors">
                   {service.title}
                 </h3>
-                <p className="text-theme-secondary text-sm leading-relaxed mb-4">
+                <p className="text-theme-secondary text-sm leading-relaxed mb-6">
                   {service.desc}
                 </p>
-                <span className="text-[var(--esg-gold)] text-sm font-medium group-hover:underline">
-                  Tìm hiểu thêm →
-                </span>
+                <ul className="space-y-2 mb-6 border-t border-theme pt-4">
+                  {service.features.map((feature, idx) => (
+                    <li
+                      key={idx}
+                      className="flex items-center gap-2 text-theme-secondary text-sm"
+                    >
+                      <Check className="w-4 h-4 text-[var(--esg-gold)] flex-shrink-0" />
+                      {feature}
+                    </li>
+                  ))}
+                </ul>
+                <a
+                  href="#contact"
+                  className="inline-flex items-center gap-2 text-[var(--esg-gold)] text-sm font-medium group-hover:gap-3 transition-all uppercase tracking-wider text-xs"
+                >
+                  Tìm hiểu thêm
+                  <ArrowRight className="w-4 h-4" />
+                </a>
               </div>
             ))}
           </div>
