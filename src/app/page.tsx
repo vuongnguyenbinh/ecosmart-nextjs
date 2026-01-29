@@ -140,17 +140,17 @@ export default function HomePage() {
     <main className="min-h-screen">
       {/* Hero Section */}
       <section className="min-h-screen flex items-center pt-24 lg:pt-0 relative overflow-hidden bg-theme-primary">
-        {/* Decorative Elements */}
-        <div className="absolute top-1/4 left-10 w-px h-32 bg-gradient-to-b from-transparent via-[var(--esg-gold)]/30 to-transparent" />
-        <div className="absolute bottom-1/4 right-10 w-px h-32 bg-gradient-to-b from-transparent via-[var(--esg-gold)]/30 to-transparent" />
-        <div className="absolute top-1/3 right-1/4 w-2 h-2 bg-[var(--esg-gold)]/30 rounded-full animate-float" />
+        {/* Decorative Elements - hidden on mobile to prevent overflow */}
+        <div className="hidden sm:block absolute top-1/4 left-10 w-px h-32 bg-gradient-to-b from-transparent via-[var(--esg-gold)]/30 to-transparent" />
+        <div className="hidden sm:block absolute bottom-1/4 right-10 w-px h-32 bg-gradient-to-b from-transparent via-[var(--esg-gold)]/30 to-transparent" />
+        <div className="hidden sm:block absolute top-1/3 right-1/4 w-2 h-2 bg-[var(--esg-gold)]/30 rounded-full animate-float" />
         <div
-          className="absolute bottom-1/3 left-1/4 w-3 h-3 bg-[var(--esg-gold)]/20 rounded-full animate-float"
+          className="hidden sm:block absolute bottom-1/3 left-1/4 w-3 h-3 bg-[var(--esg-gold)]/20 rounded-full animate-float"
           style={{ animationDelay: "2s" }}
         />
 
-        <div className="container mx-auto px-6 lg:px-12">
-          <div className="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-12">
+          <div className="grid lg:grid-cols-2 gap-8 sm:gap-12 lg:gap-20 items-center">
             {/* Hero Content */}
             <div className="z-20">
               <div className="flex items-center gap-3 mb-6">
@@ -201,12 +201,12 @@ export default function HomePage() {
                   <div className="absolute inset-0 bg-gradient-to-t from-[var(--bg-primary)]/80 via-transparent to-transparent" />
                 </div>
 
-                {/* Decorative Frame */}
-                <div className="absolute -top-4 -right-4 w-full h-full border border-[var(--esg-gold)]/30 rounded-lg z-0" />
-                <div className="absolute -bottom-4 -left-4 w-full h-full border border-[var(--esg-gold)]/10 rounded-lg z-0" />
+                {/* Decorative Frame - hidden on mobile */}
+                <div className="hidden sm:block absolute -top-4 -right-4 w-full h-full border border-[var(--esg-gold)]/30 rounded-lg z-0" />
+                <div className="hidden sm:block absolute -bottom-4 -left-4 w-full h-full border border-[var(--esg-gold)]/10 rounded-lg z-0" />
 
-                {/* Floating Badge */}
-                <div className="absolute bottom-8 -left-8 bg-theme-primary backdrop-blur-md border border-[var(--esg-gold)] p-6 rounded-lg shadow-2xl z-20 animate-float">
+                {/* Floating Badge - repositioned for mobile */}
+                <div className="absolute bottom-4 left-4 sm:bottom-8 sm:-left-8 bg-theme-primary backdrop-blur-md border border-[var(--esg-gold)] p-4 sm:p-6 rounded-lg shadow-2xl z-20 animate-float">
                   <div className="flex items-center gap-4">
                     <div className="w-12 h-12 rounded-full bg-[var(--esg-gold)]/20 flex items-center justify-center">
                       <Building2 className="w-6 h-6 text-[var(--esg-gold)]" />
@@ -228,9 +228,12 @@ export default function HomePage() {
       </section>
 
       {/* USP Section */}
-      <section id="about" className="py-20 lg:py-32 bg-theme-primary relative">
-        <div className="container mx-auto px-6 lg:px-12">
-          <div className="text-center mb-16 lg:mb-20">
+      <section
+        id="about"
+        className="py-12 sm:py-16 lg:py-32 bg-theme-primary relative"
+      >
+        <div className="container mx-auto px-4 sm:px-6 lg:px-12">
+          <div className="text-center mb-10 sm:mb-16 lg:mb-20">
             <span className="text-[var(--esg-gold)] text-sm tracking-[0.3em] uppercase">
               Giá trị cốt lõi
             </span>
@@ -241,11 +244,11 @@ export default function HomePage() {
             <div className="w-24 h-px bg-[var(--esg-gold)] mx-auto" />
           </div>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-8">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 lg:gap-8">
             {uspItems.map((item, index) => (
               <div
                 key={index}
-                className="service-card p-8 rounded-lg text-center group"
+                className="service-card p-6 sm:p-8 rounded-lg text-center group"
               >
                 <div className="w-16 h-16 mx-auto mb-6 rounded-full bg-[var(--esg-gold)]/10 flex items-center justify-center group-hover:bg-[var(--esg-gold)]/20 transition-all">
                   <item.icon className="w-8 h-8 text-[var(--esg-gold)]/70 group-hover:text-[var(--esg-gold)] transition-all duration-300" />
@@ -263,9 +266,9 @@ export default function HomePage() {
       </section>
 
       {/* Stats Section */}
-      <section className="py-16 bg-theme-secondary">
-        <div className="container mx-auto px-6 lg:px-12">
-          <div className="grid grid-cols-2 lg:grid-cols-4 gap-8">
+      <section className="py-12 sm:py-16 bg-theme-secondary">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-12">
+          <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 lg:gap-8">
             {stats.map((stat, index) => (
               <div
                 key={index}
@@ -284,9 +287,12 @@ export default function HomePage() {
       </section>
 
       {/* Services Section */}
-      <section id="services" className="py-20 lg:py-32 bg-theme-secondary">
-        <div className="container mx-auto px-6 lg:px-12">
-          <div className="text-center mb-16 lg:mb-20">
+      <section
+        id="services"
+        className="py-12 sm:py-16 lg:py-32 bg-theme-secondary"
+      >
+        <div className="container mx-auto px-4 sm:px-6 lg:px-12">
+          <div className="text-center mb-10 sm:mb-16 lg:mb-20">
             <span className="text-[var(--esg-gold)] text-sm tracking-[0.3em] uppercase">
               Dịch vụ của chúng tôi
             </span>
@@ -297,9 +303,12 @@ export default function HomePage() {
             <div className="w-24 h-px bg-[var(--esg-gold)] mx-auto" />
           </div>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 lg:gap-8">
             {services.map((service, index) => (
-              <div key={index} className="service-card p-8 rounded-lg group">
+              <div
+                key={index}
+                className="service-card p-6 sm:p-8 rounded-lg group"
+              >
                 <div className="w-14 h-14 mb-6 rounded-lg bg-[var(--esg-gold)]/10 flex items-center justify-center">
                   <service.icon className="w-7 h-7 text-[var(--esg-gold)] transition-all duration-300" />
                 </div>
@@ -334,9 +343,12 @@ export default function HomePage() {
       </section>
 
       {/* Projects Section */}
-      <section id="projects" className="py-20 lg:py-32 bg-theme-primary">
-        <div className="container mx-auto px-6 lg:px-12">
-          <div className="text-center mb-16 lg:mb-20">
+      <section
+        id="projects"
+        className="py-12 sm:py-16 lg:py-32 bg-theme-primary"
+      >
+        <div className="container mx-auto px-4 sm:px-6 lg:px-12">
+          <div className="text-center mb-10 sm:mb-16 lg:mb-20">
             <span className="text-[var(--esg-gold)] text-sm tracking-[0.3em] uppercase">
               Dự án tiêu biểu
             </span>
@@ -347,7 +359,7 @@ export default function HomePage() {
             <div className="w-24 h-px bg-[var(--esg-gold)] mx-auto" />
           </div>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
             {[1, 2, 3].map((item) => (
               <div
                 key={item}
@@ -377,9 +389,12 @@ export default function HomePage() {
       </section>
 
       {/* Testimonials Section */}
-      <section id="testimonials" className="py-20 lg:py-32 bg-theme-secondary">
-        <div className="container mx-auto px-6 lg:px-12">
-          <div className="text-center mb-16 lg:mb-20">
+      <section
+        id="testimonials"
+        className="py-12 sm:py-16 lg:py-32 bg-theme-secondary"
+      >
+        <div className="container mx-auto px-4 sm:px-6 lg:px-12">
+          <div className="text-center mb-10 sm:mb-16 lg:mb-20">
             <span className="text-[var(--esg-gold)] text-sm tracking-[0.3em] uppercase">
               Khách hàng nói gì
             </span>
@@ -390,9 +405,12 @@ export default function HomePage() {
             <div className="w-24 h-px bg-[var(--esg-gold)] mx-auto" />
           </div>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 lg:gap-8">
             {testimonials.map((testimonial, index) => (
-              <div key={index} className="testimonial-card p-8 rounded-lg">
+              <div
+                key={index}
+                className="testimonial-card p-6 sm:p-8 rounded-lg"
+              >
                 <Quote className="w-10 h-10 text-[var(--esg-gold)]/30 mb-4" />
                 <p className="text-theme-secondary leading-relaxed mb-6">
                   &ldquo;{testimonial.content}&rdquo;
@@ -420,9 +438,12 @@ export default function HomePage() {
       </section>
 
       {/* CTA / Contact Section */}
-      <section id="contact" className="py-20 lg:py-32 bg-theme-primary">
-        <div className="container mx-auto px-6 lg:px-12">
-          <div className="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
+      <section
+        id="contact"
+        className="py-12 sm:py-16 lg:py-32 bg-theme-primary"
+      >
+        <div className="container mx-auto px-4 sm:px-6 lg:px-12">
+          <div className="grid lg:grid-cols-2 gap-8 sm:gap-12 lg:gap-20 items-center">
             <div>
               <span className="text-[var(--esg-gold)] text-sm tracking-[0.3em] uppercase">
                 Liên hệ với chúng tôi
@@ -447,7 +468,7 @@ export default function HomePage() {
               </div>
             </div>
 
-            <div className="service-card p-8 lg:p-10 rounded-lg">
+            <div className="service-card p-6 sm:p-8 lg:p-10 rounded-lg">
               <h3 className="font-[var(--font-display)] text-2xl font-semibold text-theme-primary mb-6">
                 Gửi yêu cầu tư vấn
               </h3>
